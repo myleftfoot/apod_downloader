@@ -1,5 +1,6 @@
 #include <iostream>
 #include "downloader.hpp"
+#include "flags.hpp"
 #include <string>
 #include <folly/init/Init.h>
 #include <folly/logging/Init.h>
@@ -10,11 +11,6 @@ using namespace std;
 
 FOLLY_INIT_LOGGING_CONFIG(
     ".=WARNING,folly=INFO; default:async=true,sync_level=WARNING");
-
-DEFINE_bool(
-    print_version,
-    false,
-    "Print version of code this executable was built from and exit");
 
 int main(int argc, char *argv[])
 {
