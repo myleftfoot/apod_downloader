@@ -1,8 +1,9 @@
+
 find_package(Boost REQUIRED)
 find_package(folly REQUIRED)
 find_package(Threads REQUIRED)
 find_package(gflags REQUIRED)
-
+find_package(curlpp REQUIRED)
 #include_directories(${Boost_INCLUDE_DIRS})
 #include_directories(${folly_INCLUDE_DIRS})
 
@@ -26,6 +27,6 @@ file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
 set(SOURCES ${SOURCES})
 
 add_executable(${BINARY} ${SOURCES})
-target_link_libraries(${BINARY} ${Boost_LIBRARIES} ${FOLLY_LIBRARIES})
+target_link_libraries(${BINARY} PUBLIC curlpp::curlpp ${Boost_LIBRARIES} ${FOLLY_LIBRARIES})
 
 add_library(${BINARY}_lib STATIC ${SOURCES})

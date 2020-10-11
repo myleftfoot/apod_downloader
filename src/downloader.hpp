@@ -8,5 +8,6 @@ using namespace std;
 class downloader {
     public:
         string parseURI(const string& uri);
+        
 };
 #endif

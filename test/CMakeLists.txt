@@ -1,3 +1,4 @@
+
 # Locate GTest
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
@@ -6,6 +7,7 @@ find_package(Boost REQUIRED)
 find_package(folly REQUIRED)
 find_package(Threads REQUIRED)
 find_package(gflags REQUIRED)
+find_package(curlpp REQUIRED)
 
 #include_directories(${Boost_INCLUDE_DIRS})
 #include_directories(${folly_INCLUDE_DIRS})
@@ -33,4 +35,4 @@ add_executable(${BINARY} ${TEST_SOURCES})
 
 add_test(NAME ${BINARY} COMMAND ${BINARY})
 
-target_link_libraries(${BINARY} ${GTEST_LIBRARIES} pthread ${Boost_LIBRARIES} ${FOLLY_LIBRARIES})
+target_link_libraries(${BINARY} ${GTEST_LIBRARIES} pthread curlpp::curlpp ${Boost_LIBRARIES} ${FOLLY_LIBRARIES})
